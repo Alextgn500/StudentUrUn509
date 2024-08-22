@@ -1,25 +1,21 @@
-def get_matrix(n, m, value):
-    matrix = []
+def generate_password(n):
+    result = ""
+    for i in range(1, n):
+        for j in range(i+1, n+1):
+            if i + j == n or n % (i + j) == 0:
+                result += str(i) + str(j)
+    return result
 
-    if n <= 0 or m <= 0:
-        return matrix
+# Проверка для всех чисел от 3 до 20
+for num in range(3, 21):
+    password = generate_password(num)
+    print(f"{num} - {password}")
 
-    for i in range(n):
-        row = []
-        for j in range(m):
-            row.append(value)
-        matrix.append(row)
-
-    return matrix
-
-
-# Использование функции и вывод результатов
-result1 = get_matrix(2, 2, 10)
-result2 = get_matrix(3, 5, 42)
-result3 = get_matrix(4, 2, 13)
-
-print(result1)
-print(result2)
-print(result3)
+# Ввод пользователя
+user_input = int(input("Введите число от 3 до 20: "))
+if 3 <= user_input <= 20:
+    print(f"Пароль для {user_input}: {generate_password(user_input)}")
+else:
+    print("Число должно быть от 3 до 20")
 
 
