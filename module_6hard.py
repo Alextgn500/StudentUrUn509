@@ -7,13 +7,15 @@ class Figure:
 
     def __init__(self, color, *sides):
         self.__color = list(color)
+        self.__sides = sides
         self.filled = False
 
         # Проверка количества сторон
-        if len(sides) == self.sides_count:
-            self.__sides = list(sides)
-        else:
-            self.__sides = [1] * self.sides_count
+        def __is_valid_sides(self, *new_sides):
+            if (len(new_sides) == self.sides_count and
+                    all(isinstance(side, int) and side > 0 for side in new_sides)):
+                return True
+            return False
 
     # Геттер для цвета
     def get_color(self):
@@ -69,8 +71,16 @@ class Triangle(Figure):
         s = (a + b + c) / 2
         return math.sqrt(s * (s - a) * (s - b) * (s - c))
 
+        # Переименуем метод area в get_square для соответствия
 
-# Класс Cube, наследуется от Figure
+    def area(self):
+        return self.get_square()
+
+    def print_area(self):
+        area = self.get_square()  # Используем get_square вместо area
+        print(f"Площадь треугольника со сторонами {self.get_sides()} равна {area:.2f}")
+
+   # Класс Cube, наследуется от Figure
 class Cube(Figure):
     sides_count = 12
 
@@ -107,4 +117,14 @@ print(len(circle1))
 
 # Проверка объёма (куба):
 print(cube1.get_volume())
+
+# Проверка площади треугольника
+def print_triangle_square():
+    Triangle("red", 5, 5, 5).print_area()
+    Triangle("blue", 3, 4, 5).print_area()
+    Triangle("green", 7, 8, 9).print_area()
+
+if __name__ == "__main__":
+    print_triangle_square()
+
 
