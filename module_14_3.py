@@ -11,7 +11,7 @@ import texts14
 
 
 # Инициализация бота и диспетчера
-bot = Bot(token='7777692292:AAH0jbJOaWGlZlMQLheLdWn3yZp1xW2kFfs')
+bot = Bot(token='7777)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
 kb = ReplyKeyboardMarkup(resize_keyboard=True)
