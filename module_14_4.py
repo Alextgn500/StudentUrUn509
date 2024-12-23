@@ -7,8 +7,6 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from  aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 import asyncio
 
-import config14
-import texts14
 
 def get_all_products():
     with sqlite3.connect('products.db') as connection:
@@ -18,7 +16,7 @@ def get_all_products():
 
 
 # Инициализация бота и диспетчера
-bot = Bot(token='7777692292:AAFoThwGibLW2wP-u-WtQHrQuQX69GJcXE0')
+bot = Bot(token='7777)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
 kb = ReplyKeyboardMarkup(resize_keyboard=True)
